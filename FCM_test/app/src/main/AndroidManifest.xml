@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        android:minSdkVersion="33" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,9 +29,7 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/channel_id"/>
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,14 +41,9 @@
                 android:value="" />
         </activity>
 
-        <activity
-            android:name=".PushActivity"
-            android:exported="false" />
+        <activity android:name=".PushActivity"  android:exported="false" />
 
-        <service
-            android:name=".FirebaseMessagingServiceEx"
-            android:enabled="true"
-            android:exported="false">
+        <service  android:name=".FirebaseMessagingServiceEx" android:enabled="true" android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
